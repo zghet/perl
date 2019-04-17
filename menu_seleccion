@@ -1,0 +1,73 @@
+#!/usr/bin/perl
+
+print "\nSeleccione la opcion deseada\n";
+print "Para salir  oprime 0\n";
+print "Para realizar una suma oprime 1\n";
+print "Para realizar una resta oprime 2\n";
+print "Para realizar una multiplicacion oprime 3\n";
+$opcion=<STDIN>;
+chomp($opcion);
+
+if($opcion="1")
+{
+    &suma;
+}
+
+if($opcion="2")
+{
+    &resta;
+}
+
+
+if($opcion="3")
+{
+    &multi;
+}
+
+sub suma
+{
+    #if($opcion==1)
+		#{
+			print "Suma\n";
+			print"Ingresa el primer numero:";
+			$var1=<STDIN>;
+			print"Ingresa el segundo numero:";	
+			$var2=<STDIN>;
+			$suma = $var1 + $var2;
+			print"La suma total es: $suma \n";
+			#print"Deseas volver a realizar la suma:oprime 1, para salir oprime 0:";
+			#$opcion=<STDIN>;
+		#}
+}
+
+sub resta
+{
+    #if($opcion==2)
+		#{
+			print "Resta\n";
+						print"Ingresa el primero numero a restar:";
+			$var1=<STDIN>;	
+			print"Ingresa el segundo numero:";	
+			$var2=<STDIN>;
+			$resta = $var1 - $var2;
+			print"La resta total es: $resta \n\n";
+			#print"Deseas volver a realizar la resta: oprime2, para salir oprime 0:";
+			#$opcion=<STDIN>;
+		#}
+}
+
+sub multi
+{
+    	#if($opcion==3)
+		#{
+			print "Multiplicacion\n";
+			print"Ingresa el primero numero a multiplicacion:";
+			$var1=<STDIN>;	
+			print"Ingresa el segundo numero:";	
+			$var2=<STDIN>;
+			$multi = $var1 * $var2;
+			print"La multiplicacion total es: $multi \n\n";
+			#print"Deseas volver a realizar la multiplicacion: oprime 1, para salir oprime 0:";
+			#$opcion=<STDIN>;
+		#}
+}
