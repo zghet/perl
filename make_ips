@@ -1,0 +1,10 @@
+config firewall addrgrp
+edit "PEPEPICA"
+append member "IPS_NAME"
+next
+
+
+edit 	objeto	
+set associated-interface "NUBE"		
+set subnet	objeto2	255.255.255.255
+next	
