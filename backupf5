@@ -1,0 +1,18 @@
+
+#!/bin/sh
+
+f5pass="password" #se inserta el password del equipo
+#host=< hostf5.txt'  #Se toman las ips de una lista
+
+TIMESTAMP=`date +%Y%m%d`   # definimos la fecha
+REMOTE_PATH="/var/tmp"  #Definimos la ubicación temporal
+LOCAL_PATH="/home/user/backupf5"  #se define la ubicación del servidor de archivos
+
+for REMOTE_BIGIP in `cat hostf5.txt`
+do
+  echo -e "Respaldando F5: $REMOTE_BIGIP"
+  name=`echo -e "$REMOTE_BIGIP" | sed 's/\./\_/g'` #Con sed se reemplaza el "." por l "-"
+  sshpass -p $f5pass ssh root@$REMOTE_BIGIP tmsh save /sys ucs $REMOTE_PATH/"$name"_$TIMESTAMP.ucs > /dev/null #Se realiza la conexión via ssh
+  sshpass -p $f5pass scp root@$REMOTE_BIGIP:$REMOTE_PATH/"$name"_$TIMESTAMP.ucs $LOCAL_PATH/
+done
+
